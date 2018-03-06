@@ -1,8 +1,17 @@
 package lv.shebaka.smartcookbook.views;
 
+import lv.shebaka.smartcookbook.Logic.AddRecipeService;
+import lv.shebaka.smartcookbook.data.RecipeDatabase;
+
 import java.util.Scanner;
 
 public class AddRecipeView implements View {
+
+    private AddRecipeService addRecipeService;
+
+    public AddRecipeView(RecipeDatabase database){
+        this.addRecipeService = new AddRecipeService(database);
+    }
 
     @Override
     public void execute() {
@@ -14,7 +23,7 @@ public class AddRecipeView implements View {
         System.out.print("Введите ваш рецепт:");
         String desc = scan.nextLine();
 
-
+        addRecipeService.addRecipe(title, desc);
 
         System.out.println("Отлично!");
         System.out.println();

@@ -1,18 +1,22 @@
 package lv.shebaka.smartcookbook.Logic;
 
 
+import lv.shebaka.smartcookbook.data.RecipeMemoryDatabase;
 import lv.shebaka.smartcookbook.views.*;
+import lv.shebaka.smartcookbook.data.RecipeDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class MenuService {
+    RecipeDatabase database = new RecipeMemoryDatabase();
+
     ExitView exitView = new ExitView();
-    AddRecipeView addRecipeView = new AddRecipeView();
-    DeleteRecipeView deleteRecipeView = new DeleteRecipeView();
-    ShowRecipeView showRecipeView = new ShowRecipeView();
+    AddRecipeView addRecipeView = new AddRecipeView(database);
+    DeleteRecipeView deleteRecipeView = new DeleteRecipeView(database);
+    ShowRecipeView showRecipeView = new ShowRecipeView(database);
     MenuView menuView = new MenuView();
-    GetMenuItemFromUser getMenuItemFromUser = new GetMenuItemFromUser();
 
 
     public MenuService() {
@@ -24,12 +28,18 @@ public class MenuService {
 
         while (true) {
             menuView.execute();
-            int menuItem = getMenuItemFromUser.getMenuItem();
+            int menuItem = getMenuItem();
             View view = actionMap.get(menuItem);
             view.execute();
 
         }
     }
+
+    private int getMenuItem() {
+        Scanner scan = new Scanner(System.in);
+        return Integer.parseInt(scan.nextLine());
+    }
+
 
 }
 

@@ -1,21 +1,22 @@
 package lv.shebaka.smartcookbook.Logic;
 
 import lv.shebaka.smartcookbook.Recipe;
-import lv.shebaka.smartcookbook.data.RecipeData;
+import lv.shebaka.smartcookbook.data.RecipeDatabase;
 
 public class AddRecipeService {
 
-    private RecipeData recipeData;
+    private RecipeDatabase database;
 
-    public AddRecipeService(RecipeData recipeData) {
-        this.recipeData = recipeData;
+    public AddRecipeService(RecipeDatabase database) {
+
+        this.database = database;
     }
 
-    public void addRecipe(String title, String desc){
+    public void addRecipe(String title, String desc) {
 
         Recipe recipe = new Recipe();
         recipe.setTitle(title);
         recipe.setDesc(desc);
-        recipeData.add(recipe);
+        database.add(recipe);
     }
 }
