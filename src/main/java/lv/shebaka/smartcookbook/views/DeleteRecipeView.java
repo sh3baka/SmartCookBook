@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.views;
 
-        import lv.shebaka.smartcookbook.Logic.DeleteRecipeService;
+        import lv.shebaka.smartcookbook.logic.DeleteRecipeService;
         import lv.shebaka.smartcookbook.data.RecipeDatabase;
 
         import java.util.Scanner;

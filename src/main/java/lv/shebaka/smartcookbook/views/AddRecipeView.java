@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.Logic.AddRecipeService;
+import lv.shebaka.smartcookbook.logic.AddRecipeService;
 import lv.shebaka.smartcookbook.data.RecipeDatabase;
 
 import java.util.Scanner;
