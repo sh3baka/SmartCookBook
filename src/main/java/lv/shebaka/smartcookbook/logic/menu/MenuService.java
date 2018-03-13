@@ -1,4 +1,4 @@
-package lv.shebaka.smartcookbook.logic;
+package lv.shebaka.smartcookbook.logic.menu;
 
 
 import lv.shebaka.smartcookbook.data.RecipeMemoryDatabase;

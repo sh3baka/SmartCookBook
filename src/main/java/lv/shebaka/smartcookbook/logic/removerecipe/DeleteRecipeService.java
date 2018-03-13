@@ -1,4 +1,4 @@
-package lv.shebaka.smartcookbook.logic;
+package lv.shebaka.smartcookbook.logic.removerecipe;
 
 import lv.shebaka.smartcookbook.Recipe;
 import lv.shebaka.smartcookbook.data.RecipeDatabase;
