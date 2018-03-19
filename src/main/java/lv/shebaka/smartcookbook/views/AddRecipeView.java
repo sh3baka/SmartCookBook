@@ -1,5 +1,6 @@
 package lv.shebaka.smartcookbook.views;
 
+import lv.shebaka.smartcookbook.data.recipeRealDatabase;
 import lv.shebaka.smartcookbook.logic.addrecipe.AddRecipeResponse;
 import lv.shebaka.smartcookbook.logic.addrecipe.AddRecipeService;
 import lv.shebaka.smartcookbook.data.RecipeDatabase;
@@ -11,9 +12,9 @@ public class AddRecipeView implements View {
 
     private AddRecipeService addRecipeService;
 
-    public AddRecipeView(RecipeDatabase database){
-        AddRecipeValidator validator = new AddRecipeValidator(database);
-        this.addRecipeService = new AddRecipeService(database, validator);
+    public AddRecipeView(recipeRealDatabase realDatabase){
+        AddRecipeValidator validator = new AddRecipeValidator(realDatabase);
+        this.addRecipeService = new AddRecipeService(realDatabase, validator);
     }
 
     @Override

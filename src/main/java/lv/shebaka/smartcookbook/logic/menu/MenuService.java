@@ -1,7 +1,9 @@
 package lv.shebaka.smartcookbook.logic.menu;
 
 
+import lv.shebaka.smartcookbook.data.JDBCDatabase;
 import lv.shebaka.smartcookbook.data.RecipeMemoryDatabase;
+import lv.shebaka.smartcookbook.data.recipeRealDatabase;
 import lv.shebaka.smartcookbook.views.*;
 import lv.shebaka.smartcookbook.data.RecipeDatabase;
 
@@ -10,12 +12,13 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class MenuService {
-    RecipeDatabase database = new RecipeMemoryDatabase();
+    //RecipeDatabase database = new RecipeMemoryDatabase();
+    recipeRealDatabase realDatabase = new recipeRealDatabase();
 
     ExitView exitView = new ExitView();
-    AddRecipeView addRecipeView = new AddRecipeView(database);
-    DeleteRecipeView deleteRecipeView = new DeleteRecipeView(database);
-    ShowRecipeView showRecipeView = new ShowRecipeView(database);
+    AddRecipeView addRecipeView = new AddRecipeView(realDatabase);
+    DeleteRecipeView deleteRecipeView = new DeleteRecipeView(realDatabase);
+    ShowRecipeView showRecipeView = new ShowRecipeView(realDatabase);
     MenuView menuView = new MenuView();
 
 
