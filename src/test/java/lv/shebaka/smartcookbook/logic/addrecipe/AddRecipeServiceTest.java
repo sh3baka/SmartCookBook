@@ -14,14 +14,14 @@ import static org.junit.Assert.assertEquals;
 
 public class AddRecipeServiceTest {
 
-    private RecipeDatabase database;
+    //private RecipeDatabase database;
     private AddRecipeValidator validator;
     private AddRecipeService service;
     private recipeRealDatabase realDatabase;
 
     @Before
     public void init(){
-        database = Mockito.mock(RecipeDatabase.class);
+        realDatabase = Mockito.mock(recipeRealDatabase.class);
         validator = Mockito.mock(AddRecipeValidator.class);
         service = new AddRecipeService(realDatabase, validator);
     }
