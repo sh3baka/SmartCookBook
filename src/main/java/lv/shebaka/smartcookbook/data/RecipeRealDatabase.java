@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class recipeRealDatabase extends JDBCDatabase implements RecipeDatabase{
+public class RecipeRealDatabase extends JDBCDatabase implements RecipeDatabase{
 
     @Override
     public void add(Recipe recipe) {
@@ -115,4 +115,5 @@ public class recipeRealDatabase extends JDBCDatabase implements RecipeDatabase{
         return recipes;
 
     }
+
 }

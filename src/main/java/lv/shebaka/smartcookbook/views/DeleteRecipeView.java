@@ -1,8 +1,7 @@
 package lv.shebaka.smartcookbook.views;
 
-        import lv.shebaka.smartcookbook.data.recipeRealDatabase;
+        import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
         import lv.shebaka.smartcookbook.logic.removerecipe.DeleteRecipeService;
-        import lv.shebaka.smartcookbook.data.RecipeDatabase;
 
         import java.util.Scanner;
 
@@ -10,7 +9,7 @@ public class DeleteRecipeView implements View {
 
     private DeleteRecipeService deleteRecipeService;
 
-    public DeleteRecipeView(recipeRealDatabase realDatabase){
+    public DeleteRecipeView(RecipeRealDatabase realDatabase){
         this.deleteRecipeService = new DeleteRecipeService(realDatabase);
     }
 

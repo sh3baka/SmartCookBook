@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.logic.addrecipe;
 
-import lv.shebaka.smartcookbook.data.RecipeDatabase;
+import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
 import lv.shebaka.smartcookbook.logic.Error;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,12 +12,12 @@ import static org.junit.Assert.*;
 
 public class AddRecipeValidatorTest {
 
-    private RecipeDatabase database;
+    private RecipeRealDatabase database;
     private AddRecipeValidator validator;
 
     @Before
     public void init(){
-        database = Mockito.mock(RecipeDatabase.class);
+        database = Mockito.mock(RecipeRealDatabase.class);
         validator = new AddRecipeValidator(database);
     }
 

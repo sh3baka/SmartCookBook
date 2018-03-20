@@ -10,7 +10,8 @@ public class MenuView implements View {
         System.out.println("1. Добавить рецепт");
         System.out.println("2. Удалить рецепт из списка");
         System.out.println("3. Вывести рецепты в консоль");
-        System.out.println("4. Выход");
+        System.out.println("4. Добавить пользователя");
+        System.out.println("0. Выход");
 
 
     }

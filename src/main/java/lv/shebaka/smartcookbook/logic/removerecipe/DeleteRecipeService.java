@@ -1,17 +1,15 @@
 package lv.shebaka.smartcookbook.logic.removerecipe;
 
 import lv.shebaka.smartcookbook.Recipe;
-import lv.shebaka.smartcookbook.data.RecipeDatabase;
-import lv.shebaka.smartcookbook.data.recipeRealDatabase;
+import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
 
 import java.util.Optional;
 
 public class DeleteRecipeService {
 
-   //private RecipeDatabase recipeDatabase;
-    private recipeRealDatabase realDatabase;
+    private RecipeRealDatabase realDatabase;
 
-    public DeleteRecipeService(recipeRealDatabase realDatabase){
+    public DeleteRecipeService(RecipeRealDatabase realDatabase){
         this.realDatabase = realDatabase;
     }
 

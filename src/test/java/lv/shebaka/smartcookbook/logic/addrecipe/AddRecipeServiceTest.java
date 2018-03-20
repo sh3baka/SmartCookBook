@@ -1,7 +1,7 @@
 package lv.shebaka.smartcookbook.logic.addrecipe;
 
-import lv.shebaka.smartcookbook.data.RecipeDatabase;
-import lv.shebaka.smartcookbook.data.recipeRealDatabase;
+import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
+import lv.shebaka.smartcookbook.logic.AddResponse;
 import lv.shebaka.smartcookbook.logic.Error;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,11 +17,11 @@ public class AddRecipeServiceTest {
     //private RecipeDatabase database;
     private AddRecipeValidator validator;
     private AddRecipeService service;
-    private recipeRealDatabase realDatabase;
+    private RecipeRealDatabase realDatabase;
 
     @Before
     public void init(){
-        realDatabase = Mockito.mock(recipeRealDatabase.class);
+        realDatabase = Mockito.mock(RecipeRealDatabase.class);
         validator = Mockito.mock(AddRecipeValidator.class);
         service = new AddRecipeService(realDatabase, validator);
     }
@@ -31,7 +31,7 @@ public class AddRecipeServiceTest {
         List<Error> errors = new ArrayList<>();
         Mockito.when(validator.validate("title","desc")).thenReturn(errors);
 
-        AddRecipeResponse response = service.addRecipe("title","desc");
+        AddResponse response = service.addRecipe("title","desc");
 
         assertEquals(response.isSuccess(), true);
         assertEquals(response.getErrors(), null);
@@ -43,7 +43,7 @@ public class AddRecipeServiceTest {
         errors.add(new Error("title", "errorMsg"));
         Mockito.when(validator.validate(null, "desc")).thenReturn(errors);
 
-        AddRecipeResponse response = service.addRecipe(null, "desc");
+        AddResponse response = service.addRecipe(null, "desc");
 
         assertEquals(response.isSuccess(), false);
         assertEquals(response.getErrors(), errors);

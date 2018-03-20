@@ -1,15 +1,15 @@
-package lv.shebaka.smartcookbook.logic.addrecipe;
+package lv.shebaka.smartcookbook.logic;
 
 import lv.shebaka.smartcookbook.logic.Error;
 
 import java.util.List;
 
-public class AddRecipeResponse {
+public class AddResponse {
     private boolean success;
 
     private List<Error> errors;
 
-    public AddRecipeResponse(boolean success, List<Error> errors) {
+    public AddResponse(boolean success, List<Error> errors) {
         this.success = success;
         this.errors = errors;
     }

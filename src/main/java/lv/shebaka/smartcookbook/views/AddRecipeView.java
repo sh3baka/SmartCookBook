@@ -1,9 +1,8 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.data.recipeRealDatabase;
-import lv.shebaka.smartcookbook.logic.addrecipe.AddRecipeResponse;
+import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
+import lv.shebaka.smartcookbook.logic.AddResponse;
 import lv.shebaka.smartcookbook.logic.addrecipe.AddRecipeService;
-import lv.shebaka.smartcookbook.data.RecipeDatabase;
 import lv.shebaka.smartcookbook.logic.addrecipe.AddRecipeValidator;
 
 import java.util.Scanner;
@@ -12,7 +11,7 @@ public class AddRecipeView implements View {
 
     private AddRecipeService addRecipeService;
 
-    public AddRecipeView(recipeRealDatabase realDatabase){
+    public AddRecipeView(RecipeRealDatabase realDatabase){
         AddRecipeValidator validator = new AddRecipeValidator(realDatabase);
         this.addRecipeService = new AddRecipeService(realDatabase, validator);
     }
@@ -27,7 +26,7 @@ public class AddRecipeView implements View {
         System.out.print("Введите ваш рецепт:");
         String desc = scan.nextLine();
 
-        AddRecipeResponse response = addRecipeService.addRecipe(title,desc);
+        AddResponse response = addRecipeService.addRecipe(title,desc);
         if(response.isSuccess()){
             System.out.println("Рецепт добавлен в список!");
             System.out.println();
