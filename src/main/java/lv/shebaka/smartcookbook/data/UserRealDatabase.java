@@ -26,7 +26,7 @@ public class UserRealDatabase extends JDBCDatabase implements UserDatabase {
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             if (resultSet.next()){
                 user.setId(resultSet.getLong(1));
-                user.setRegDate(resultSet.getString(2));
+                //user.setRegDate(resultSet.getString(4));
             }
         } catch (Exception e) {
             System.out.println("Exception while execute userDAOimpl.save");

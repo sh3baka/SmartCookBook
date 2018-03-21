@@ -18,16 +18,17 @@ public class AddUserService {
 
         List<Error> validationErrors = addUserValidator.validate(username, password, repeatPassword, email);
         if (!validationErrors.isEmpty()) {
-            return new AddResponse(true, validationErrors);
+            return new AddResponse(false, validationErrors);
+        }else {
+
+            User user = new User();
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setEmail(email);
+            userRealDatabase.add(user);
+
+            return new AddResponse(true, null);
         }
-
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setEmail(email);
-        userRealDatabase.add(user);
-
-        return new AddResponse(true, null);
     }
 }
 

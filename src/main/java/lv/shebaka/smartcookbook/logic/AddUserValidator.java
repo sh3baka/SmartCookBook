@@ -19,34 +19,42 @@ public class AddUserValidator {
         validateUsername(username).ifPresent(errors::add);
         validatePassword(password).ifPresent(errors::add);
         validateEmail(email).ifPresent(errors::add);
-        passwordMatch(password, repeatPassword).ifPresent(errors::add);
+        validateRepeatePassword(repeatPassword).ifPresent(errors::add);
+        passwordMatch(repeatPassword, password).ifPresent(errors::add);
         return errors;
     }
 
     private Optional<Error> validateUsername(String username){
         if (username == null || username.isEmpty()){
-            return Optional.of(new Error(username , "Must not be empty"));
+            return Optional.of(new Error("username" , "Must not be empty"));
         }else {
             return Optional.empty();
         }
     }
     private Optional<Error> validatePassword(String password) {
         if (password == null || password.isEmpty()) {
-            return Optional.of(new Error(password, "Must not be empty"));
+            return Optional.of(new Error("password", "Must not be empty"));
         } else {
             return Optional.empty();
         }
     }
     private Optional<Error> validateEmail(String email) {
         if (email == null || email.isEmpty()) {
-            return Optional.of(new Error(email, "Must not be empty"));
+            return Optional.of(new Error("email", "Must not be empty"));
         } else {
             return Optional.empty();
         }
     }
-    private Optional<Error> passwordMatch(String password , String repeatPassword){
-        if ((password != null || repeatPassword != null) || (password.isEmpty() || repeatPassword.isEmpty())){
-            return Optional.of(new Error(password, "Password or repeated must not be empty or have to match"));
+    private Optional<Error> validateRepeatePassword(String repeatPassword){
+        if (repeatPassword == null || repeatPassword.isEmpty()){
+            return Optional.of(new Error("repeatPassword" , "Repeated password must not be empty "));
+        }else {
+            return Optional.empty();
+        }
+    }
+    private Optional<Error> passwordMatch(String repeatPassword, String password){
+        if ((repeatPassword != null || password != null) && !password.equals(repeatPassword)){
+            return Optional.of(new Error("repeatPassword" , "Passwords don't match "));
         }else {
             return Optional.empty();
         }

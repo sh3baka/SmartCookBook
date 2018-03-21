@@ -32,14 +32,13 @@ public class UserRegistrationView implements View {
         if (response.isSuccess()){
             System.out.println("Пользователь успешно зарегестрирован!");
             System.out.println();
+            System.out.println("Отлично!");
+            System.out.println();
         }else{
             response.getErrors().forEach(error -> {
                 System.out.println("Ошибка в поле = "+ error.getField());
                 System.out.println("Ошибка = "+ error.getErrorMsg());
             });
         }
-
-        System.out.println("Отлично!");
-        System.out.println();
     }
 }
