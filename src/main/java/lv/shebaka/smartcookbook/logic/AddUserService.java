@@ -1,18 +1,15 @@
 package lv.shebaka.smartcookbook.logic;
 
-import lv.shebaka.smartcookbook.User;
 import lv.shebaka.smartcookbook.data.UserRealDatabase;
+import lv.shebaka.smartcookbook.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public class AddUserService {
-    private UserRealDatabase userRealDatabase;
-    private AddUserValidator addUserValidator;
-
-    public AddUserService(UserRealDatabase userRealDatabase, AddUserValidator addUserValidator) {
-        this.userRealDatabase = userRealDatabase;
-        this.addUserValidator = addUserValidator;
-    }
+    @Autowired private UserRealDatabase userRealDatabase;
+    @Autowired private AddUserValidator addUserValidator;
 
     public AddResponse addUser(String username, String password,String repeatPassword, String email) {
 

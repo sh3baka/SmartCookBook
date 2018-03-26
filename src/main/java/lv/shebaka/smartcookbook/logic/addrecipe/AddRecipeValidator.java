@@ -1,20 +1,18 @@
 package lv.shebaka.smartcookbook.logic.addrecipe;
 
-import lv.shebaka.smartcookbook.Recipe;
 import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
+import lv.shebaka.smartcookbook.domain.Recipe;
 import lv.shebaka.smartcookbook.logic.Error;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+@Component
 public class AddRecipeValidator {
 
-    private RecipeRealDatabase realDatabase;
-
-    public AddRecipeValidator(RecipeRealDatabase realDatabase) {
-        this.realDatabase = realDatabase;
-    }
+    @Autowired private RecipeRealDatabase realDatabase;
 
     public List<Error> validate(String title, String desc){
         List<Error> errors = new ArrayList<>();

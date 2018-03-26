@@ -1,18 +1,16 @@
 package lv.shebaka.smartcookbook.logic;
 
-        import lv.shebaka.smartcookbook.data.UserRealDatabase;
+import lv.shebaka.smartcookbook.data.UserRealDatabase;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-        import java.util.ArrayList;
-        import java.util.List;
-        import java.util.Optional;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+@Component
 public class AddUserValidator {
 
-    private UserRealDatabase userRealDatabase;
-
-    public AddUserValidator(UserRealDatabase userRealDatabase) {
-        this.userRealDatabase = userRealDatabase;
-    }
+    @Autowired private UserRealDatabase userRealDatabase;
 
     List<Error> validate(String username, String password, String repeatPassword, String email) {
         List<Error> errors = new ArrayList<>();

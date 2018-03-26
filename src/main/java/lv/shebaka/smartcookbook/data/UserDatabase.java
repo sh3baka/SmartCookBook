@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.data;
 
-import lv.shebaka.smartcookbook.User;
+import lv.shebaka.smartcookbook.domain.User;
 
 import java.util.List;
 import java.util.Optional;

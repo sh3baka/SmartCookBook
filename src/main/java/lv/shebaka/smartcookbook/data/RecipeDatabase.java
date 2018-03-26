@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.data;
 
-import lv.shebaka.smartcookbook.Recipe;
+import lv.shebaka.smartcookbook.domain.Recipe;
 
 import java.util.List;
 import java.util.Optional;

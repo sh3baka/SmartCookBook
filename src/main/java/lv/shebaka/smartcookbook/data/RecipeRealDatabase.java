@@ -1,6 +1,7 @@
 package lv.shebaka.smartcookbook.data;
 
-import lv.shebaka.smartcookbook.Recipe;
+import lv.shebaka.smartcookbook.domain.Recipe;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class RecipeRealDatabase extends JDBCDatabase implements RecipeDatabase{
 
     @Override

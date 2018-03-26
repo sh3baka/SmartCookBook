@@ -1,7 +1,5 @@
 package lv.shebaka.smartcookbook.logic;
 
-import lv.shebaka.smartcookbook.logic.Error;
-
 import java.util.List;
 
 public class AddResponse {

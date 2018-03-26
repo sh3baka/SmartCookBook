@@ -1,4 +1,4 @@
-package lv.shebaka.smartcookbook;
+package lv.shebaka.smartcookbook.domain;
 
 
 public class User {

@@ -1,19 +1,16 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.data.UserRealDatabase;
 import lv.shebaka.smartcookbook.logic.AddResponse;
 import lv.shebaka.smartcookbook.logic.AddUserService;
-import lv.shebaka.smartcookbook.logic.AddUserValidator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
-
+@Component
 public class UserRegistrationView implements View {
 
-    AddUserService addUserService ;
-    public UserRegistrationView(UserRealDatabase userRealDatabase){
-        AddUserValidator addUserValidator = new AddUserValidator(userRealDatabase);
-        this.addUserService = new AddUserService(userRealDatabase,addUserValidator);
-    }
+    @Autowired private AddUserService addUserService;
+
     @Override
     public void execute() {
         System.out.println();

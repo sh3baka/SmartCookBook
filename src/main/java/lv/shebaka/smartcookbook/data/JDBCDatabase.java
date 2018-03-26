@@ -1,10 +1,10 @@
 package lv.shebaka.smartcookbook.data;
 
-        import java.io.IOException;
-        import java.sql.Connection;
-        import java.sql.DriverManager;
-        import java.sql.SQLException;
-        import java.util.Properties;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
 public class JDBCDatabase {
     private static final String DB_CONFIG_FILE = "database.properties";

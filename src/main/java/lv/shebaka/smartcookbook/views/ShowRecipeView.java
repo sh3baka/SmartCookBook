@@ -1,15 +1,14 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.Recipe;
 import lv.shebaka.smartcookbook.data.RecipeDatabase;
+import lv.shebaka.smartcookbook.domain.Recipe;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ShowRecipeView implements View {
 
-    private RecipeDatabase database;
-
-    public ShowRecipeView(RecipeDatabase database){
-        this.database = database;
-    }
+    @Autowired private RecipeDatabase database;
 
     @Override
     public void execute() {

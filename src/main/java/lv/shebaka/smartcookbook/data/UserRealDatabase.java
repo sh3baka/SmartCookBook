@@ -1,6 +1,7 @@
 package lv.shebaka.smartcookbook.data;
 
-import lv.shebaka.smartcookbook.User;
+import lv.shebaka.smartcookbook.domain.User;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class UserRealDatabase extends JDBCDatabase implements UserDatabase {
 
     @Override
@@ -26,7 +28,6 @@ public class UserRealDatabase extends JDBCDatabase implements UserDatabase {
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             if (resultSet.next()){
                 user.setId(resultSet.getLong(1));
-                //user.setRegDate(resultSet.getString(4));
             }
         } catch (Exception e) {
             System.out.println("Exception while execute userDAOimpl.save");

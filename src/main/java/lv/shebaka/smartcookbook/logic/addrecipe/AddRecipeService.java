@@ -1,21 +1,22 @@
 package lv.shebaka.smartcookbook.logic.addrecipe;
 
-import lv.shebaka.smartcookbook.Recipe;
 import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
+import lv.shebaka.smartcookbook.domain.Recipe;
 import lv.shebaka.smartcookbook.logic.AddResponse;
 import lv.shebaka.smartcookbook.logic.Error;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public class AddRecipeService {
 
-    private RecipeRealDatabase realDatabase;
-    private AddRecipeValidator addRecipeValidator;
+    @Autowired private RecipeRealDatabase realDatabase;
+    @Autowired private AddRecipeValidator addRecipeValidator;
 
-    public AddRecipeService(RecipeRealDatabase realDatabase, AddRecipeValidator addRecipeValidator) {
-
+    public AddRecipeService(RecipeRealDatabase recipeRealDatabase, AddRecipeValidator addRecipeValidator) {
+        this.realDatabase = recipeRealDatabase;
         this.addRecipeValidator = addRecipeValidator;
-        this.realDatabase = realDatabase;
     }
 
     public AddResponse addRecipe(String title, String desc) {

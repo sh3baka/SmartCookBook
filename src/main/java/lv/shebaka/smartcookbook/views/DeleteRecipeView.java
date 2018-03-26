@@ -1,17 +1,14 @@
 package lv.shebaka.smartcookbook.views;
 
-        import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
-        import lv.shebaka.smartcookbook.logic.removerecipe.DeleteRecipeService;
+import lv.shebaka.smartcookbook.logic.removerecipe.DeleteRecipeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-        import java.util.Scanner;
-
+import java.util.Scanner;
+@Component
 public class DeleteRecipeView implements View {
 
-    private DeleteRecipeService deleteRecipeService;
-
-    public DeleteRecipeView(RecipeRealDatabase realDatabase){
-        this.deleteRecipeService = new DeleteRecipeService(realDatabase);
-    }
+    @Autowired private DeleteRecipeService deleteRecipeService;
 
     @Override
     public void execute() {

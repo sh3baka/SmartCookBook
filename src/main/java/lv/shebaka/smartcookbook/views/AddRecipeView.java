@@ -1,20 +1,16 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
 import lv.shebaka.smartcookbook.logic.AddResponse;
 import lv.shebaka.smartcookbook.logic.addrecipe.AddRecipeService;
-import lv.shebaka.smartcookbook.logic.addrecipe.AddRecipeValidator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
-
+@Component
 public class AddRecipeView implements View {
 
-    private AddRecipeService addRecipeService;
+     @Autowired private AddRecipeService addRecipeService;
 
-    public AddRecipeView(RecipeRealDatabase realDatabase){
-        AddRecipeValidator validator = new AddRecipeValidator(realDatabase);
-        this.addRecipeService = new AddRecipeService(realDatabase, validator);
-    }
 
     @Override
     public void execute() {
