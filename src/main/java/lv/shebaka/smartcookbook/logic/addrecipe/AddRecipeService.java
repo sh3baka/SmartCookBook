@@ -1,5 +1,6 @@
 package lv.shebaka.smartcookbook.logic.addrecipe;
 
+import lv.shebaka.smartcookbook.data.RecipeORMDatabase;
 import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
 import lv.shebaka.smartcookbook.domain.Recipe;
 import lv.shebaka.smartcookbook.logic.AddResponse;
@@ -11,13 +12,9 @@ import java.util.List;
 @Component
 public class AddRecipeService {
 
-    @Autowired private RecipeRealDatabase realDatabase;
+    @Autowired private RecipeORMDatabase recipeORMDatabase;
+    //@Autowired private RecipeRealDatabase realDatabase;
     @Autowired private AddRecipeValidator addRecipeValidator;
-
-    public AddRecipeService(RecipeRealDatabase recipeRealDatabase, AddRecipeValidator addRecipeValidator) {
-        this.realDatabase = recipeRealDatabase;
-        this.addRecipeValidator = addRecipeValidator;
-    }
 
     public AddResponse addRecipe(String title, String desc) {
 
@@ -29,7 +26,7 @@ public class AddRecipeService {
         Recipe recipe = new Recipe();
         recipe.setTitle(title);
         recipe.setDesc(desc);
-        realDatabase.add(recipe);
+        recipeORMDatabase.add(recipe);
 
         return new AddResponse(true, null);
     }

@@ -1,13 +1,24 @@
 package lv.shebaka.smartcookbook.domain;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name = "user")
 public class User {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "username", nullable = false)
     private String username;
+
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "email")
     private String email;
-    private String regDate;
 
     public Long getId() {
         return id;
@@ -41,14 +52,6 @@ public class User {
         this.email = email;
     }
 
-    public String getRegDate() {
-        return regDate;
-    }
-
-    public void setRegDate(String regDate) {
-        this.regDate = regDate;
-    }
-
     @Override
     public boolean equals(Object o){
         if (this == o) return true;
@@ -59,8 +62,6 @@ public class User {
         if (id != null ? !id.equals(user.id) : id != null) return false;
         if (username != null ? !username.equals(user.username) : username != null) return false;
         if (password != null ? !password.equals(user.password) : password != null) return false;
-        if (email != null ? !email.equals(user.email) : email != null) return false;
-        return regDate != null ? !regDate.equals(user.regDate) : regDate != null;
-
+        return email != null ? !email.equals(user.email) : email != null;
     }
 }
