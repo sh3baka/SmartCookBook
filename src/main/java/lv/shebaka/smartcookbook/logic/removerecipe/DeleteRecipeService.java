@@ -5,6 +5,7 @@ import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
 import lv.shebaka.smartcookbook.domain.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -14,7 +15,7 @@ public class DeleteRecipeService {
     @Autowired
     private RecipeORMDatabase recipeORMDatabase;
     //@Autowired private RecipeRealDatabase realDatabase;
-
+    @Transactional
     public boolean deleteRecipe(String title) {
         Optional<Recipe> foundRecipe = recipeORMDatabase.findByTitle(title);
         if (foundRecipe.isPresent()) {

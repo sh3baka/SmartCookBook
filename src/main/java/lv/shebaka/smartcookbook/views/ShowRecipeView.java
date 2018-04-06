@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.data.RecipeDatabase;
+import lv.shebaka.smartcookbook.data.RecipeORMDatabase;
 import lv.shebaka.smartcookbook.domain.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ShowRecipeView implements View {
 
-    @Autowired private RecipeDatabase database;
+    @Autowired private RecipeORMDatabase recipeORMDatabase;
 
     @Override
     public void execute() {
@@ -16,8 +16,8 @@ public class ShowRecipeView implements View {
         System.out.println();
         System.out.println("Выводим все рецепты в списке");
 
-        for(Recipe recipe : database.getAllRecipes()){
-            System.out.println(recipe.getTitle() + "[" + recipe.getDesc() + "]");
+        for(Recipe recipe : recipeORMDatabase.getAllRecipes()){
+            System.out.println(recipe.getTitle() + " [" + recipe.getDesc() + "]");
         }
 
         System.out.println("Все рецепты выведены");

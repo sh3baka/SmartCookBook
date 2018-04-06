@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 @Component
-public class UserRegistrationView implements View {
+public class AddUserView implements View {
 
     @Autowired private AddUserService addUserService;
 

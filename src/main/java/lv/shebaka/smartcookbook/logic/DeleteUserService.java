@@ -4,6 +4,7 @@ import lv.shebaka.smartcookbook.data.UserORMDatabase;
 import lv.shebaka.smartcookbook.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ public class DeleteUserService {
     @Autowired
     private UserORMDatabase userORMDatabase;
 
+    @Transactional
     public boolean deleteUser(String username) {
         Optional<User> foundUser = userORMDatabase.findByUsername(username);
         if (foundUser.isPresent()) {

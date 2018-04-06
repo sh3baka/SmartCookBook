@@ -1,16 +1,17 @@
 package lv.shebaka.smartcookbook.logic;
 
-import lv.shebaka.smartcookbook.data.UserRealDatabase;
+import lv.shebaka.smartcookbook.data.UserORMDatabase;
 import lv.shebaka.smartcookbook.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Component
 public class AddUserService {
-    @Autowired private UserRealDatabase userRealDatabase;
+    @Autowired private UserORMDatabase userORMDatabase;
     @Autowired private AddUserValidator addUserValidator;
-
+    @Transactional
     public AddResponse addUser(String username, String password,String repeatPassword, String email) {
 
         List<Error> validationErrors = addUserValidator.validate(username, password, repeatPassword, email);
@@ -22,7 +23,7 @@ public class AddUserService {
             user.setUsername(username);
             user.setPassword(password);
             user.setEmail(email);
-            userRealDatabase.add(user);
+            userORMDatabase.add(user);
 
             return new AddResponse(true, null);
         }
