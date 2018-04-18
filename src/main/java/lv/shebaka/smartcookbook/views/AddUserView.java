@@ -22,9 +22,7 @@ public class AddUserView implements View {
         String password = scan.nextLine();
         System.out.print("Введите вашу пароль еще раз:");
         String passwordRepeat = scan.nextLine();
-        System.out.print("Введите вашу почту:");
-        String email = scan.nextLine();
-        AddResponse response = addUserService.addUser(username, password , passwordRepeat, email);
+        AddResponse response = addUserService.addUser(username, password , passwordRepeat);
 
         if (response.isSuccess()){
             System.out.println("Пользователь успешно зарегестрирован!");

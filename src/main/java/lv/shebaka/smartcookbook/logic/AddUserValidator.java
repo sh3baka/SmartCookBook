@@ -1,7 +1,6 @@
 package lv.shebaka.smartcookbook.logic;
 
 import lv.shebaka.smartcookbook.data.UserORMDatabase;
-import lv.shebaka.smartcookbook.data.UserRealDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,11 +12,10 @@ public class AddUserValidator {
 
     @Autowired private UserORMDatabase userORMDatabase;
 
-    List<Error> validate(String username, String password, String repeatPassword, String email) {
+    List<Error> validate(String username, String password, String repeatPassword) {
         List<Error> errors = new ArrayList<>();
         validateUsername(username).ifPresent(errors::add);
         validatePassword(password).ifPresent(errors::add);
-        validateEmail(email).ifPresent(errors::add);
         validateRepeatePassword(repeatPassword).ifPresent(errors::add);
         passwordMatch(repeatPassword, password).ifPresent(errors::add);
         return errors;
@@ -33,13 +31,6 @@ public class AddUserValidator {
     private Optional<Error> validatePassword(String password) {
         if (password == null || password.isEmpty()) {
             return Optional.of(new Error("password", "Must not be empty"));
-        } else {
-            return Optional.empty();
-        }
-    }
-    private Optional<Error> validateEmail(String email) {
-        if (email == null || email.isEmpty()) {
-            return Optional.of(new Error("email", "Must not be empty"));
         } else {
             return Optional.empty();
         }

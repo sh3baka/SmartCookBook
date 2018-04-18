@@ -1,3 +1,4 @@
+/*
 package lv.shebaka.smartcookbook.data;
 
 import java.io.IOException;
@@ -69,3 +70,4 @@ public class JDBCDatabase {
     }
 }
 
+*/

@@ -1,3 +1,4 @@
+/*
 package lv.shebaka.smartcookbook.data;
 
 import lv.shebaka.smartcookbook.domain.User;
@@ -54,3 +55,4 @@ public class UserRealDatabase extends JDBCDatabase implements UserDatabase {
         return null;
     }
 }
+*/
