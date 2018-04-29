@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class RecipeORMDatabase implements RecipeDatabase {
+public class RecipeDatabaseImpl implements RecipeDatabase {
 
     @Autowired
     private SessionFactory sessionFactory;

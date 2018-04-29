@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.logic.DeleteUserService;
+import lv.shebaka.smartcookbook.logic.deleteuser.DeleteUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

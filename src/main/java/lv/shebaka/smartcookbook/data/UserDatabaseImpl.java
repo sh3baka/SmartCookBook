@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class UserORMDatabase implements UserDatabase {
+public class UserDatabaseImpl implements UserDatabase {
     @Autowired
     SessionFactory sessionFactory;
 

@@ -1,10 +1,8 @@
 package lv.shebaka.smartcookbook.logic.addrecipe;
 
-import lv.shebaka.smartcookbook.data.RecipeORMDatabase;
-import lv.shebaka.smartcookbook.data.RecipeRealDatabase;
+import lv.shebaka.smartcookbook.data.RecipeDatabaseImpl;
 import lv.shebaka.smartcookbook.logic.AddResponse;
 import lv.shebaka.smartcookbook.logic.Error;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -23,7 +21,7 @@ public class AddRecipeServiceTest {
     @Mock
     private AddRecipeValidator validator;
     @Mock
-    private RecipeORMDatabase database;
+    private RecipeDatabaseImpl database;
 
     @InjectMocks
     private AddRecipeService service = new AddRecipeService();

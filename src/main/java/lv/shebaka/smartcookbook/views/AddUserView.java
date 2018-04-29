@@ -1,7 +1,7 @@
 package lv.shebaka.smartcookbook.views;
 
 import lv.shebaka.smartcookbook.logic.AddResponse;
-import lv.shebaka.smartcookbook.logic.AddUserService;
+import lv.shebaka.smartcookbook.logic.adduser.AddUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
