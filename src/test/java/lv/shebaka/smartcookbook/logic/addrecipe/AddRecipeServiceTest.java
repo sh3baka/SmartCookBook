@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.logic.addrecipe;
 
-import lv.shebaka.smartcookbook.data.RecipeDatabaseImpl;
+import lv.shebaka.smartcookbook.data.orm.RecipeDatabaseImpl;
 import lv.shebaka.smartcookbook.logic.AddResponse;
 import lv.shebaka.smartcookbook.logic.Error;
 import org.junit.Test;

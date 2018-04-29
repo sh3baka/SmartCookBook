@@ -1,5 +1,7 @@
-package lv.shebaka.smartcookbook.data;
+package lv.shebaka.smartcookbook.data.orm;
 
+import lv.shebaka.smartcookbook.data.UserDatabase;
+import lv.shebaka.smartcookbook.data.orm.ORMRepository;
 import lv.shebaka.smartcookbook.domain.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,13 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class UserDatabaseImpl implements UserDatabase {
-    @Autowired
-    SessionFactory sessionFactory;
-
-    private Session session(){
-        return sessionFactory.getCurrentSession();
-    }
+public class UserDatabaseImpl extends ORMRepository implements UserDatabase {
 
     @Override
     public void add(User user) {

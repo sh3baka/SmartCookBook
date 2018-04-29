@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Recipe {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id_recipe")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 

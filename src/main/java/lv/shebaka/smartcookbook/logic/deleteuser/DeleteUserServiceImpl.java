@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.logic.deleteuser;
 
-import lv.shebaka.smartcookbook.data.UserDatabaseImpl;
+import lv.shebaka.smartcookbook.data.orm.UserDatabaseImpl;
 import lv.shebaka.smartcookbook.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

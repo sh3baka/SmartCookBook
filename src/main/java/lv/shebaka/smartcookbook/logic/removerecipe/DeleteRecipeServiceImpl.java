@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.logic.removerecipe;
 
-import lv.shebaka.smartcookbook.data.RecipeDatabaseImpl;
+import lv.shebaka.smartcookbook.data.orm.RecipeDatabaseImpl;
 import lv.shebaka.smartcookbook.domain.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

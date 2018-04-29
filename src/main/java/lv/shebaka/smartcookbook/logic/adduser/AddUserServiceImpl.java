@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.logic.adduser;
 
-import lv.shebaka.smartcookbook.data.UserDatabaseImpl;
+import lv.shebaka.smartcookbook.data.orm.UserDatabaseImpl;
 import lv.shebaka.smartcookbook.domain.User;
 import lv.shebaka.smartcookbook.logic.AddResponse;
 import lv.shebaka.smartcookbook.logic.Error;

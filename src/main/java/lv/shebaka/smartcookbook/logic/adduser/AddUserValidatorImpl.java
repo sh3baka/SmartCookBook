@@ -1,8 +1,7 @@
 package lv.shebaka.smartcookbook.logic.adduser;
 
-import lv.shebaka.smartcookbook.data.UserDatabaseImpl;
+import lv.shebaka.smartcookbook.data.orm.UserDatabaseImpl;
 import lv.shebaka.smartcookbook.logic.Error;
-import lv.shebaka.smartcookbook.logic.addrecipe.AddRecipeValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
