@@ -1,5 +1,6 @@
 package lv.shebaka.smartcookbook.logic.adduser;
 
+import lv.shebaka.smartcookbook.data.UserDatabase;
 import lv.shebaka.smartcookbook.data.orm.UserDatabaseImpl;
 import lv.shebaka.smartcookbook.logic.Error;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.Optional;
 @Component
 public class AddUserValidatorImpl implements AddUserValidator{
 
-    @Autowired private UserDatabaseImpl userRepositoryImpl;
+    @Autowired private UserDatabase userRepository;
 
     public List<Error> validate(String username, String password, String repeatPassword) {
         List<Error> errors = new ArrayList<>();
