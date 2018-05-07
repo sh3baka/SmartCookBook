@@ -23,6 +23,7 @@ public class HelloWorldServlet extends HttpServlet{
         //set response content type
         resp.setContentType("text/html");
 
+
         //Prepare output html
         PrintWriter out = resp.getWriter();
         out.println("<h1>" + "Helloworld Java Servlet" + "</h1>");
