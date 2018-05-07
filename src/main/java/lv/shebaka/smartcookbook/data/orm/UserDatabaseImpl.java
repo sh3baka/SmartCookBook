@@ -32,8 +32,8 @@ public class UserDatabaseImpl extends ORMRepository implements UserDatabase {
 
     }
 
-    @Override
-    public List<User> getAllUsers() {
-        return session().createCriteria(User.class).list();
-    }
+//    @Override
+//    public List<User> getAllUsers() {
+//        return session().createCriteria(User.class).list();
+//    }
 }

@@ -32,8 +32,8 @@ public class RecipeDatabaseImpl extends ORMRepository implements RecipeDatabase 
         session().delete(recipe);
     }
 
-    @Override
-    public List<Recipe> getAllRecipes() {
-        return session().createCriteria(Recipe.class).list();
-    }
+//    @Override
+//    public List<Recipe> getAllRecipes() {
+//        return session().createCriteria(Recipe.class).list();
+//    }
 }

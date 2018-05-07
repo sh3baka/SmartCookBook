@@ -13,6 +13,6 @@ public interface UserDatabase {
 
     void remove(User user);
 
-    List<User> getAllUsers();
+ //   List<User> getAllUsers();
 
 }

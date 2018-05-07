@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ShowRecipeView implements View {
 
-    @Autowired private RecipeDatabaseImpl recipeDatabaseImpl;
+//    @Autowired private RecipeDatabaseImpl recipeDatabaseImpl;
 
     @Override
     public void execute() {
@@ -16,9 +16,9 @@ public class ShowRecipeView implements View {
         System.out.println();
         System.out.println("Выводим все рецепты в списке");
 
-        for(Recipe recipe : recipeDatabaseImpl.getAllRecipes()){
-            System.out.println(recipe.getTitle() + " [" + recipe.getDesc() + "]");
-        }
+//        for(Recipe recipe : recipeDatabaseImpl.getAllRecipes()){
+//            System.out.println(recipe.getTitle() + " [" + recipe.getDesc() + "]");
+//        }
 
         System.out.println("Все рецепты выведены");
         System.out.println();
