@@ -21,10 +21,10 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 
     @Override
     @Transactional
-    public UserRegistrationResponce register(UserRegistrationRequest request) {
+    public UserRegistrationResponse register(UserRegistrationRequest request) {
         List<Error> validationErrors = userRegistrationValidator.validate(request);
         if(!validationErrors.isEmpty()){
-            return new UserRegistrationResponce(validationErrors);
+            return new UserRegistrationResponse(validationErrors);
         }
 
         User user = createUser()
@@ -34,6 +34,6 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 
         userDatabase.add(user);
 
-        return new UserRegistrationResponce(user.getId());
+        return new UserRegistrationResponse(user.getId());
     }
 }

@@ -4,19 +4,19 @@ import lv.shebaka.smartcookbook.logic.Error;
 
 import java.util.List;
 
-public class UserRegistrationResponce {
+public class UserRegistrationResponse {
 
     private Long userId;
     private boolean success;
     private List<Error> errors;
 
-    public UserRegistrationResponce(Long userId){
+    public UserRegistrationResponse(Long userId){
         this.userId = userId;
         this.success = true;
         this.errors = null;
     }
 
-    public UserRegistrationResponce(List<Error> errors){
+    public UserRegistrationResponse(List<Error> errors){
         this.userId = null;
         this.success = false;
         this.errors = errors;

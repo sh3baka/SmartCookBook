@@ -1,5 +1,6 @@
 package lv.shebaka.smartcookbook.logic.addrecipe;
 
+import lv.shebaka.smartcookbook.data.RecipeDatabase;
 import lv.shebaka.smartcookbook.data.orm.RecipeDatabaseImpl;
 import lv.shebaka.smartcookbook.domain.Recipe;
 import lv.shebaka.smartcookbook.logic.Error;
@@ -12,7 +13,7 @@ import java.util.Optional;
 @Component
 public class AddRecipeValidator {
 
-    @Autowired private RecipeDatabaseImpl recipeDatabaseImpl;
+    @Autowired private RecipeDatabase recipeDatabase;
 
     public List<Error> validate(String title, String desc){
         List<Error> errors = new ArrayList<>();
@@ -40,7 +41,7 @@ public class AddRecipeValidator {
 
     private Optional<Error> validateDuplicateTitle(String title) {
         if (title != null && title.isEmpty()) {
-            Optional<Recipe> recipeOptional = recipeDatabaseImpl.findByTitle(title);
+            Optional<Recipe> recipeOptional = recipeDatabase.findByTitle(title);
             if (recipeOptional.isPresent()){
                 return Optional.of(new Error("title", "Must not repeat"));
             }

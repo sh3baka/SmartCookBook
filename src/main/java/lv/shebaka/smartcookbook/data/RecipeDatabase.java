@@ -14,6 +14,6 @@ public interface RecipeDatabase {
 
     void remove(Recipe recipe);
 
- //   List<Recipe> getAllRecipes();
+    List<Recipe> getAllRecipes();
 
 }

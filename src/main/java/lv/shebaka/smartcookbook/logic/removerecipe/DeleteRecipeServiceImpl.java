@@ -1,5 +1,6 @@
 package lv.shebaka.smartcookbook.logic.removerecipe;
 
+import lv.shebaka.smartcookbook.data.RecipeDatabase;
 import lv.shebaka.smartcookbook.data.orm.RecipeDatabaseImpl;
 import lv.shebaka.smartcookbook.domain.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +13,14 @@ import java.util.Optional;
 public class DeleteRecipeServiceImpl implements DeleteRecipeService{
 
     @Autowired
-    private RecipeDatabaseImpl recipeDatabaseImpl;
+    private RecipeDatabase recipeDatabase;
     //@Autowired private RecipeRealDatabase realDatabase;
     @Transactional
     public boolean deleteRecipe(String title) {
-        Optional<Recipe> foundRecipe = recipeDatabaseImpl.findByTitle(title);
+        Optional<Recipe> foundRecipe = recipeDatabase.findByTitle(title);
         if (foundRecipe.isPresent()) {
             Recipe recipe = foundRecipe.get();
-            recipeDatabaseImpl.remove(recipe);
+            recipeDatabase.remove(recipe);
             return true;
         } else {
             return false;

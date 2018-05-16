@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
@@ -32,8 +33,9 @@ public class RecipeDatabaseImpl extends ORMRepository implements RecipeDatabase 
         session().delete(recipe);
     }
 
-//    @Override
-//    public List<Recipe> getAllRecipes() {
-//        return session().createCriteria(Recipe.class).list();
-//    }
+    @Override
+    @Transactional
+    public List<Recipe> getAllRecipes() {
+        return session().createCriteria(Recipe.class).list();
+    }
 }

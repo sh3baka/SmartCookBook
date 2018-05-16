@@ -1,7 +1,5 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.logic.AddResponse;
-import lv.shebaka.smartcookbook.logic.adduser.AddUserService;
 import lv.shebaka.smartcookbook.logic.userregistration.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -38,7 +36,7 @@ public class AddUserView implements View {
 //                System.out.println("Ошибка = "+ error.getErrorMsg());
 //            });
 //        }
-        UserRegistrationResponce response = userRegistrationService.register(new UserRegistrationRequest(username, password));
+        UserRegistrationResponse response = userRegistrationService.register(new UserRegistrationRequest(username, password));
 
         if(response.isSuccess()){
             System.out.println("Пользователь успешно зарегестрирован!");

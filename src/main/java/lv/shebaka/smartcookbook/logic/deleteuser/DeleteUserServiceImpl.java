@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.logic.deleteuser;
 
-import lv.shebaka.smartcookbook.data.orm.UserDatabaseImpl;
+import lv.shebaka.smartcookbook.data.UserDatabase;
 import lv.shebaka.smartcookbook.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,14 +12,14 @@ import java.util.Optional;
 public class DeleteUserServiceImpl implements DeleteUserService{
 
     @Autowired
-    private UserDatabaseImpl userRepositoryImpl;
+    private UserDatabase userRepository;
 
     @Transactional
     public boolean deleteUser(String username) {
-        Optional<User> foundUser = userRepositoryImpl.findByUsername(username);
+        Optional<User> foundUser = userRepository.findByUsername(username);
         if (foundUser.isPresent()) {
             User user = foundUser.get();
-            userRepositoryImpl.remove(user);
+            userRepository.remove(user);
             return true;
         } else {
             return false;
