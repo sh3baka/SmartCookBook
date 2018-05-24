@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.logic.userregistration;
 
-import lv.shebaka.smartcookbook.data.UserDatabase;
+import lv.shebaka.smartcookbook.data.UserRepository;
 import lv.shebaka.smartcookbook.domain.User;
 import lv.shebaka.smartcookbook.logic.Error;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.util.Optional;
 public class UserRegistrationValidatorImpl implements UserRegistrationValidator {
 
     @Autowired
-    private UserDatabase userDatabase;
+    private UserRepository userRepository;
 
     @Override
     public List<Error> validate(UserRegistrationRequest request) {
@@ -41,7 +41,7 @@ public class UserRegistrationValidatorImpl implements UserRegistrationValidator 
 
     private Optional<Error> validateDuplicateLogin(String login){
         if(login != null && !login.isEmpty()){
-            Optional<User> userOptional = userDatabase.findByUsername(login);
+            Optional<User> userOptional = userRepository.findByUsername(login);
             if(userOptional.isPresent()){
                 return Optional.of(new Error("login", "Already exists"));
             }

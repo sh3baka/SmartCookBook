@@ -6,7 +6,7 @@
 //import java.util.List;
 //import java.util.Optional;
 //
-//public class RecipeMemoryDatabase implements RecipeDatabase {
+//public class RecipeMemoryDatabase implements RecipeRepository {
 //
 //
 //    private List<Recipe> recipes = new ArrayList<>();

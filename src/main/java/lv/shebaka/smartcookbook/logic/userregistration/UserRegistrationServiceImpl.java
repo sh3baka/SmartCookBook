@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.logic.userregistration;
 
-import lv.shebaka.smartcookbook.data.UserDatabase;
+import lv.shebaka.smartcookbook.data.UserRepository;
 import lv.shebaka.smartcookbook.domain.User;
 import lv.shebaka.smartcookbook.logic.Error;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
     @Autowired
     private UserRegistrationValidator userRegistrationValidator;
     @Autowired
-    private UserDatabase userDatabase;
+    private UserRepository userRepository;
 
     @Override
     @Transactional
@@ -32,7 +32,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
                 .withPassword(request.getPassword())
                 .build();
 
-        userDatabase.add(user);
+        userRepository.add(user);
 
         return new UserRegistrationResponse(user.getId());
     }

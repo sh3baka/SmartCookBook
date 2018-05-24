@@ -1,25 +1,62 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.data.RecipeDatabase;
-import lv.shebaka.smartcookbook.data.orm.RecipeDatabaseImpl;
+import lv.shebaka.smartcookbook.data.RecipeRepository;
+import lv.shebaka.smartcookbook.data.UserRepository;
+import lv.shebaka.smartcookbook.domain.Product;
 import lv.shebaka.smartcookbook.domain.Recipe;
+import lv.shebaka.smartcookbook.domain.User;
+import lv.shebaka.smartcookbook.domain.UserFridge;
+import lv.shebaka.smartcookbook.logic.searchrecipes.SearchRecipesRequest;
+import lv.shebaka.smartcookbook.logic.searchrecipes.SearchRecipesResponse;
+import lv.shebaka.smartcookbook.logic.searchrecipes.SearchRecipesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.jws.soap.SOAPBinding;
+import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ShowRecipeView implements View {
 
-    @Autowired private RecipeDatabase recipeDatabase;
+//    @Autowired private RecipeRepository recipeRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    SearchRecipesService searchRecipesService;
 
     @Override
     public void execute() {
 
+       Optional<User> foundUser = userRepository.findByUsername("Test");
+//       if (foundUser.isPresent()){
+//           User user = foundUser.get();
+//           for(UserFridge userFridge : userRepository.getUserProductsByUsername(user)){
+//               System.out.println(userFridge.getUser().getUsername() + "[" + userFridge.getProduct().getId() + "]");
+//           }
+//       }
+
+        if (foundUser.isPresent()){
+
+            User user = foundUser.get();
+
+            SearchRecipesResponse searchRecipesResponse = searchRecipesService.searchRecipes(new SearchRecipesRequest(user));
+
+            List<Recipe> list =  searchRecipesResponse.getRecipes();
+
+            for (Recipe recipe : list){
+                System.out.println(recipe.getTitle());
+            }
+        }
+
         System.out.println();
         System.out.println("Выводим все рецепты в списке");
 
-        for(Recipe recipe : recipeDatabase.getAllRecipes()){
-            System.out.println(recipe.getTitle() + " [" + recipe.getDesc() + "]");
-        }
+//        for(Recipe recipe : recipeRepository.getAllRecipes()){
+//            System.out.println(recipe.getTitle() + " [" + recipe.getDesc() + "]");
+//        }
+
+
 
         System.out.println("Все рецепты выведены");
         System.out.println();

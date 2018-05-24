@@ -1,12 +1,10 @@
 package lv.shebaka.smartcookbook.data.orm;
 
-import lv.shebaka.smartcookbook.data.RecipeDatabase;
-import lv.shebaka.smartcookbook.data.orm.ORMRepository;
+import lv.shebaka.smartcookbook.data.RecipeRepository;
+import lv.shebaka.smartcookbook.domain.Product;
 import lv.shebaka.smartcookbook.domain.Recipe;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import lv.shebaka.smartcookbook.domain.RecipeItem;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class RecipeDatabaseImpl extends ORMRepository implements RecipeDatabase {
+public class RecipeRepositoryImpl extends ORMRepository implements RecipeRepository {
 
     @Override
     public void add(Recipe recipe) {
@@ -37,5 +35,11 @@ public class RecipeDatabaseImpl extends ORMRepository implements RecipeDatabase 
     @Transactional
     public List<Recipe> getAllRecipes() {
         return session().createCriteria(Recipe.class).list();
+    }
+
+    @Override
+    @Transactional
+    public List<RecipeItem> getRecipeProducts(Recipe recipe) {
+        return session().createCriteria(RecipeItem.class).add(Restrictions.eq("recipes", recipe)).list();
     }
 }

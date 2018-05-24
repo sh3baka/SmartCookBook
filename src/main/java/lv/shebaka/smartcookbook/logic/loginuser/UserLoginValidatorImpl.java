@@ -1,9 +1,8 @@
 package lv.shebaka.smartcookbook.logic.loginuser;
 
-import lv.shebaka.smartcookbook.data.UserDatabase;
+import lv.shebaka.smartcookbook.data.UserRepository;
 import lv.shebaka.smartcookbook.domain.User;
 import lv.shebaka.smartcookbook.logic.Error;
-import lv.shebaka.smartcookbook.logic.userregistration.UserRegistrationRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +15,7 @@ import java.util.Optional;
 public class UserLoginValidatorImpl implements UserLoginValidator {
 
     @Autowired
-    private UserDatabase userDatabase;
+    private UserRepository userRepository;
 
     @Override
     public List<Error> validate(UserLoginRequest request) {
@@ -42,7 +41,7 @@ public class UserLoginValidatorImpl implements UserLoginValidator {
     private Optional<Error> validateUsernameExist(String username){
         if(username != null && !username.isEmpty()){
             try {
-                Optional<User> userOptional = userDatabase.findByUsername(username);
+                Optional<User> userOptional = userRepository.findByUsername(username);
                 if(!userOptional.isPresent()) {
                     return Optional.of(new Error("username", "Username not found"));
                 }
@@ -63,7 +62,7 @@ public class UserLoginValidatorImpl implements UserLoginValidator {
     private Optional<Error> validateUserPassword(String username, String password){
         if (username != null && password != null || !username.isEmpty() && !password.isEmpty()){
             try {
-                Optional<User> user = userDatabase.findByUsername(username);
+                Optional<User> user = userRepository.findByUsername(username);
                 if(!user.get().getPassword().equals(password)){
                     return Optional.of(new Error("password", "Wrong Password"));
                 }

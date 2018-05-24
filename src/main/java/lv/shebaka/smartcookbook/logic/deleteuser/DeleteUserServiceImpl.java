@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.logic.deleteuser;
 
-import lv.shebaka.smartcookbook.data.UserDatabase;
+import lv.shebaka.smartcookbook.data.UserRepository;
 import lv.shebaka.smartcookbook.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class DeleteUserServiceImpl implements DeleteUserService{
 
     @Autowired
-    private UserDatabase userRepository;
+    private UserRepository userRepository;
 
     @Transactional
     public boolean deleteUser(String username) {

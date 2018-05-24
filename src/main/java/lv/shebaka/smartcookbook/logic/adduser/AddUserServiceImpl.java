@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.logic.adduser;
 
-import lv.shebaka.smartcookbook.data.UserDatabase;
+import lv.shebaka.smartcookbook.data.UserRepository;
 import lv.shebaka.smartcookbook.domain.User;
 import lv.shebaka.smartcookbook.logic.AddResponse;
 import lv.shebaka.smartcookbook.logic.Error;
@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 @Component
 public class AddUserServiceImpl implements AddUserService{
-    @Autowired private UserDatabase userRepository;
+    @Autowired private UserRepository userRepository;
     @Autowired private AddUserValidatorImpl addUserValidatorImpl;
 
     @Transactional

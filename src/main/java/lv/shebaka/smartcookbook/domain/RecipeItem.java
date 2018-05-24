@@ -19,7 +19,7 @@ public class RecipeItem {
     private Recipe recipes;
 
     @ManyToOne
-    @JoinColumn(name = "id_product")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public Long getId() {

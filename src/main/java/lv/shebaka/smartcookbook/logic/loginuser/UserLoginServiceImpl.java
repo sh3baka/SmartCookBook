@@ -1,10 +1,8 @@
 package lv.shebaka.smartcookbook.logic.loginuser;
 
-import lv.shebaka.smartcookbook.data.UserDatabase;
+import lv.shebaka.smartcookbook.data.UserRepository;
 import lv.shebaka.smartcookbook.domain.User;
 import lv.shebaka.smartcookbook.logic.Error;
-import lv.shebaka.smartcookbook.logic.userregistration.UserRegistrationRequest;
-import lv.shebaka.smartcookbook.logic.userregistration.UserRegistrationValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +15,7 @@ public class UserLoginServiceImpl implements UserLoginService {
     @Autowired
     private UserLoginValidator validator;
     @Autowired
-    private UserDatabase database;
+    private UserRepository database;
 
 
     @Override
