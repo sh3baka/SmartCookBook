@@ -1,4 +1,4 @@
-<%@ page import="lv.shebaka.smartcookbook.domain.User" %>
+
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
@@ -13,7 +13,11 @@
     <title>JSP page</title>
 </head>
 <body>
-Hello ${userModel.username}
+<%!int i;%>
+<%for (i = 0; i < 10; i++){%>
+<h1>Hello ${userModel.username} <br></h1>
+<h3>Welcome ${currentUser.username} <br></h3>
+<%}%>
 
 <%--<% User user =  %>--%>
 <%--<h1> <%user.getUsername();%> </h1>--%>

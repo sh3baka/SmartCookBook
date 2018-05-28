@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Login Screen</h1>
-<form action="LoginController" method="post">
+<form action="validate" method="post">
     <input type="text" name="login" > Login <br>
     <input type="text" name="password" > Password <br>
     <input type="submit" value="Login" >

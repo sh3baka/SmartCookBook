@@ -27,15 +27,14 @@ public class LoginController {
     @Autowired
     private UserLoginService userLoginService;
 
-    @RequestMapping( method = {RequestMethod.GET})
-    public ModelAndView processGet(HttpServletRequest request) {
+    @RequestMapping(value = "/", method = {RequestMethod.GET})
+    public String processGet(HttpServletRequest request) {
 
-        return new  ModelAndView("welcomescreen");
+        return "welcomescreen";
     }
 
-    @RequestMapping(value = "/LoginController", method = RequestMethod.POST)
+    @RequestMapping(value = "/validate" ,method = RequestMethod.POST)
     public ModelAndView processPost(HttpServletRequest request) {
-
 
         try {
             request.setCharacterEncoding("UTF-8");
@@ -50,11 +49,14 @@ public class LoginController {
 
         if (response.isSuccess()) {
             User user = response.getUser();
+            HttpSession session = request.getSession();
+            session.setAttribute("currentUser", user);
             return new ModelAndView("login","userModel", user);
-        }
+        } else {
 
-        List<Error> list = response.getErrors();
-        return new ModelAndView("login", "errorModel", list);
+            List<Error> list = response.getErrors();
+            return new ModelAndView("login", "errorModel", list);
+        }
 
 
 //        ModelAndView modelAndView = new ModelAndView();

@@ -34,7 +34,7 @@ public class MVCDispatcherFilter implements Filter {
         }
 
         controllerMap = new HashMap<>();
-        controllerMap.put("/", getBean(LoginController.class));
+ //       controllerMap.put("/", getBean(LoginController.class));
         controllerMap.put("/LoginController", getBean(LoginController.class));
         controllerMap.put("/registration", getBean(RegistrationController.class));
         controllerMap.put("/RegistrationController", getBean(RegistrationController.class));
