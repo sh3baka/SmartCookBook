@@ -27,10 +27,9 @@ public class UserLoginServiceImpl implements UserLoginService {
 
 
             Optional<User> user = database.findByUsername(request.getUsername());
-            user.get().getId();
 
 
-            return new UserLoginResponse(user.get().getId());
+            return new UserLoginResponse(user.get());
         }
     }
 }

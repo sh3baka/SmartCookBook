@@ -1,3 +1,5 @@
+<%@ page import="lv.shebaka.smartcookbook.domain.User" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Костя
@@ -11,9 +13,13 @@
     <title>JSP page</title>
 </head>
 <body>
+Hello ${userModel.username}
 
-<h1>Hello from JSP</h1>
-<h2><%= request.getAttribute("model")%></h2>
+<%--<% User user =  %>--%>
+<%--<h1> <%user.getUsername();%> </h1>--%>
+<%--<h2> <%user.getPassword();%> </h2>--%>
+
+
 
 
 </body>

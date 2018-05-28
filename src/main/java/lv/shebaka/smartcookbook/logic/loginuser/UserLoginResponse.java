@@ -1,33 +1,35 @@
 package lv.shebaka.smartcookbook.logic.loginuser;
 
+import lv.shebaka.smartcookbook.domain.User;
 import lv.shebaka.smartcookbook.logic.Error;
 
 import java.util.List;
 
 public class UserLoginResponse {
 
-    private Long userId;
+    private User user;
+
     private boolean success;
     private List<Error> errors;
 
-    public UserLoginResponse(Long userId){
-        this.userId = userId;
+    public UserLoginResponse(User user){
+        this.user = user;
         this.success = true;
         this.errors = null;
     }
 
     public UserLoginResponse(List<Error> errors){
-        this.userId = null;
+        this.user = null;
         this.success = false;
         this.errors = errors;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public boolean isSuccess() {

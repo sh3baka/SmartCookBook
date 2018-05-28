@@ -19,6 +19,9 @@ public class UserRegistrationValidatorImpl implements UserRegistrationValidator 
     @Override
     public List<Error> validate(UserRegistrationRequest request) {
         List<Error> errors = new ArrayList<>();
+        validationLogin(request.getLogin()).ifPresent(errors ::add);
+        validatePassword(request.getPassword()).ifPresent(errors::add);
+        validateDuplicateLogin(request.getLogin()).ifPresent(errors::add);
 
         return errors;
     }

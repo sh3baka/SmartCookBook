@@ -17,13 +17,13 @@
         <!--<url-pattern>/hw</url-pattern>-->
     <!--</servlet-mapping>-->
 
-<filter>
-    <filter-name>MVCFilter</filter-name>
-    <filter-class>lv.shebaka.smartcookbook.servlets.mvc.MVCDispatcherFilter</filter-class>
-</filter>
+<!--<filter>-->
+    <!--<filter-name>MVCFilter</filter-name>-->
+    <!--<filter-class>lv.shebaka.smartcookbook.servlets.mvc.MVCDispatcherFilter</filter-class>-->
+<!--</filter>-->
 
-    <filter-mapping>
-        <filter-name>MVCFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    <!--<filter-mapping>-->
+        <!--<filter-name>MVCFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
 </web-app>
