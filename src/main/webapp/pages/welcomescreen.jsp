@@ -13,10 +13,22 @@
 <body>
 <h1>Login Screen</h1>
 <form action="validate" method="post">
-    <input type="text" name="login" > Login <br>
-    <input type="text" name="password" > Password <br>
-    <input type="submit" value="Login" >
+    <table>
+        <tr>
+            <td>Login:</td>
+            <td><input type="text" name="login"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="text" name="password"> </td>
+        </tr>
+        <tr>
+            <td align="right" colspan="2"><input type="submit" value="Login"></td>
+        </tr>
+    </table>
 </form>
 <a href="http://localhost:8080/SmartCookBook/registration">Registration</a>
 </body>
 </html>
+
+

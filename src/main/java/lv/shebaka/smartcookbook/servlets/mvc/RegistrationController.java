@@ -17,14 +17,14 @@ import java.io.UnsupportedEncodingException;
 public class RegistrationController {
 
     @Autowired
-    UserRegistrationService userRegistrationService;
+    private UserRegistrationService userRegistrationService;
 
     @RequestMapping(value = "/registration" , method = RequestMethod.GET)
     public ModelAndView processGet(HttpServletRequest request) {
         return new ModelAndView("registration");
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView processPost(HttpServletRequest request) {
 
         try {

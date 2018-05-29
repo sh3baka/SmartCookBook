@@ -13,11 +13,11 @@
     <title>JSP page</title>
 </head>
 <body>
-<%!int i;%>
-<%for (i = 0; i < 10; i++){%>
-<h1>Hello ${userModel.username} <br></h1>
-<h3>Welcome ${currentUser.username} <br></h3>
-<%}%>
+
+<h3>Welcome ${userModel.username} <br></h3>
+<a href="http://localhost:8080/SmartCookBook/recipes">Show Recipes</a>
+<a href="http://localhost:8080/SmartCookBook/fridge">Show Fridge</a>
+
 
 <%--<% User user =  %>--%>
 <%--<h1> <%user.getUsername();%> </h1>--%>

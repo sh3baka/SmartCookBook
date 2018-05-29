@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @Controller
+@SessionAttributes("userModel")
 public class LoginController {
 
     @Autowired
@@ -49,13 +51,13 @@ public class LoginController {
 
         if (response.isSuccess()) {
             User user = response.getUser();
-            HttpSession session = request.getSession();
-            session.setAttribute("currentUser", user);
+//            HttpSession session = request.getSession();
+//            session.setAttribute("currentUser", user);
             return new ModelAndView("login","userModel", user);
         } else {
 
             List<Error> list = response.getErrors();
-            return new ModelAndView("login", "errorModel", list);
+            return new ModelAndView("errorpage", "errorModel", list);
         }
 
 
