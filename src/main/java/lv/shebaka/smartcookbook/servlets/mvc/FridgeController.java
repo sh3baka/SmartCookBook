@@ -3,6 +3,7 @@ package lv.shebaka.smartcookbook.servlets.mvc;
 
 import lv.shebaka.smartcookbook.data.FridgeRepository;
 import lv.shebaka.smartcookbook.data.ProductRepository;
+import lv.shebaka.smartcookbook.data.UserRepository;
 import lv.shebaka.smartcookbook.domain.Product;
 import lv.shebaka.smartcookbook.domain.User;
 import lv.shebaka.smartcookbook.logic.addUserFridgeItems.AddToFridgeRequest;
@@ -28,6 +29,8 @@ public class FridgeController {
     private FridgeRepository fridgeRepository;
     @Autowired
     private AddToFridgeService addToFridgeService;
+    @Autowired
+    private UserRepository userRepository;
 
     @RequestMapping(value = "/fridge", method = RequestMethod.GET)
     public ModelAndView getFridge(HttpServletRequest request){
@@ -51,6 +54,8 @@ public class FridgeController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        
+
 //get Combo box values as String
         String[] numbers = request.getParameterValues("products");
 //make String values as Product list
@@ -66,12 +71,7 @@ public class FridgeController {
             addToFridgeService.addToFridge(new AddToFridgeRequest(user, product));
         }
 
-
-
-
-
-
-        return new ModelAndView("recipes", "testModel", products);
+        return new ModelAndView("login", "testModel", products);
 
 
     }

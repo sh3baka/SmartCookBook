@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Registration Screen</h1>
-<form action="RegistrationController" method="POST">
+<form action="registration" method="POST">
     <table>
         <tr>
             <td>Login:</td>

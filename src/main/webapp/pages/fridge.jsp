@@ -11,16 +11,40 @@
 <html>
 <head>
     <title>Fridge</title>
+    <style>
+        table, tr, td {
+            color: brown ;
+            background-color: orange;
+        }
+        a:link {
+            color: black;
+            text-decoration: none;
+            background-color: orange;
+        }
+        a:hover {
+            color: white;
+            text-decoration: none;
+            background-color: orangered;
+        }
+    </style>
 </head>
 <body>
+<table>
+    <tr>
+        <td align="center"><h4>Меню</h4></td>
+    </tr>
+    <tr>
+        <td align="left"><a href="http://localhost:8080/SmartCookBook/recipes">Посмотреть доступные Рецепты</a></td>
+    </tr>
+</table>
 <form action="getfridge" method="post">
-
     <c:forEach var="fridge" items="${fridgeModel}">
 
-        <input type="checkbox" name="products" value="${fridge.getTitle()}">${fridge.getTitle()}
+
+        <br><input type="checkbox" name="products" value="${fridge.getTitle()}">${fridge.getTitle()}
 
     </c:forEach>
-    <input type="submit" value="Submit">
+    <br><input type="submit" value="Сохранить Изменения">
 </form>
 </body>
 </html>

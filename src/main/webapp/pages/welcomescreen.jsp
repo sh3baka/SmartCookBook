@@ -9,6 +9,18 @@
 <html>
 <head>
     <title>WelcomeScreen</title>
+    <style>
+        a:link {
+            color: black;
+            text-decoration: none;
+            background-color: white;
+        }
+        a:hover {
+            color: black;
+            text-decoration: none;
+            background-color: aliceblue;
+        }
+    </style>
 </head>
 <body>
 <h1>Login Screen</h1>

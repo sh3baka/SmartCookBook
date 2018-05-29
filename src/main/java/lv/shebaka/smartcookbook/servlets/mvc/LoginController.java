@@ -51,8 +51,6 @@ public class LoginController {
 
         if (response.isSuccess()) {
             User user = response.getUser();
-//            HttpSession session = request.getSession();
-//            session.setAttribute("currentUser", user);
             return new ModelAndView("login","userModel", user);
         } else {
 

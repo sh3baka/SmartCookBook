@@ -12,6 +12,11 @@
 <html>
 <head>
     <title>errorPage</title>
+    <style>
+        h4 {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <h1>Error page:</h1>
@@ -19,10 +24,5 @@
     <h3>${error.getField()}<br></h3>
     <h4>${error.getErrorMsg()}<br><br></h4>
 </c:forEach>
-<%--<% List<Error> list = (List<Error>) request.getAttribute("errorModel"); %>--%>
-<%--<% for (Error errors : list){ %>--%>
-<%--<h2><% errors.getErrorMsg(); %></h2><<br>--%>
-<%--<% } %>--%>
-
 </body>
 </html>

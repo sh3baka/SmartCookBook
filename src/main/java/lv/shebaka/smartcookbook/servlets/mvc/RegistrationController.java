@@ -44,7 +44,7 @@ public class RegistrationController {
 
         }
 
-        return new ModelAndView("welcomescreen", "model", response.getErrors());
+        return new ModelAndView("errorpage", "errorModel", response.getErrors());
 
 
     }
