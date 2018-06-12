@@ -5,25 +5,4 @@
                       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-
-    <!--<servlet>-->
-        <!--<servlet-name>HelloWorldServlet</servlet-name>-->
-        <!--<servlet-class>lv.shebaka.smartcookbook.servlets.HelloWorldServlet</servlet-class>-->
-    <!--</servlet>-->
-
-
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>HelloWorldServlet</servlet-name>-->
-        <!--<url-pattern>/hw</url-pattern>-->
-    <!--</servlet-mapping>-->
-
-<!--<filter>-->
-    <!--<filter-name>MVCFilter</filter-name>-->
-    <!--<filter-class>lv.shebaka.smartcookbook.servlets.mvc.MVCDispatcherFilter</filter-class>-->
-<!--</filter>-->
-
-    <!--<filter-mapping>-->
-        <!--<filter-name>MVCFilter</filter-name>-->
-        <!--<url-pattern>/*</url-pattern>-->
-    <!--</filter-mapping>-->
 </web-app>

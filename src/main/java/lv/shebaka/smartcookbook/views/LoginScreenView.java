@@ -1,10 +1,8 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.logic.loginuser.UserLoginRequest;
-import lv.shebaka.smartcookbook.logic.loginuser.UserLoginResponse;
-import lv.shebaka.smartcookbook.logic.loginuser.UserLoginService;
-import lv.shebaka.smartcookbook.logic.loginuser.UserLoginServiceImpl;
-import lv.shebaka.smartcookbook.logic.userregistration.UserRegistrationRequest;
+import lv.shebaka.smartcookbook.logic.loginUser.UserLoginRequest;
+import lv.shebaka.smartcookbook.logic.loginUser.UserLoginResponse;
+import lv.shebaka.smartcookbook.logic.loginUser.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,15 +25,14 @@ public class LoginScreenView implements View {
 
         UserLoginResponse response = userLoginService.logIn(new UserLoginRequest(username, password));
 
-        if (response.isSuccess()){
+        if (response.isSuccess()) {
             System.out.println("Welcome");
         } else {
             response.getErrors().forEach(error -> {
-                System.out.println("Ошибка в поле = "+ error.getField());
-                System.out.println("Ошибка = "+ error.getErrorMsg());
+                System.out.println("Ошибка в поле = " + error.getField());
+                System.out.println("Ошибка = " + error.getErrorMsg());
             });
         }
-
 
 
     }

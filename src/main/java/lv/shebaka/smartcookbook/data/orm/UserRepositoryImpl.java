@@ -37,7 +37,7 @@ public class UserRepositoryImpl extends ORMRepository implements UserRepository 
     public List<UserFridge> getUserProductsByUsername(User user) {
 
         return session().createCriteria(UserFridge.class).
-                add(Restrictions.eq("user", user )).list();
+                add(Restrictions.eq("user", user)).list();
 
 
     }

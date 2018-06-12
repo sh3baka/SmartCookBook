@@ -9,6 +9,8 @@ abstract class ORMRepository {
     @Autowired
     private SessionFactory sessionFactory;
 
-    protected Session session(){return sessionFactory.getCurrentSession();}
+    protected Session session() {
+        return sessionFactory.getCurrentSession();
+    }
 
 }

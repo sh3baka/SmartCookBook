@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"lv.shebaka.smartcookbook"})
-public class WebMVCConfig extends WebMvcConfigurerAdapter{
+public class WebMVCConfig extends WebMvcConfigurerAdapter {
 
 
     @Bean

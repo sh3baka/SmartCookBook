@@ -10,13 +10,14 @@ public class UserFridgeBuilder {
     private User user;
     private Product product;
 
-    private UserFridgeBuilder(){}
+    private UserFridgeBuilder() {
+    }
 
-    public static UserFridgeBuilder createUserFridge(){
+    public static UserFridgeBuilder createUserFridge() {
         return new UserFridgeBuilder();
     }
 
-    public UserFridge build(){
+    public UserFridge build() {
         UserFridge userFridge = new UserFridge();
         userFridge.setId(id);
         userFridge.setUser(user);
@@ -24,27 +25,27 @@ public class UserFridgeBuilder {
         return userFridge;
     }
 
-    public UserFridgeBuilder withId(Long id){
+    public UserFridgeBuilder withId(Long id) {
         this.id = id;
         return this;
     }
 
-    public UserFridgeBuilder withUser(User user){
+    public UserFridgeBuilder withUser(User user) {
         this.user = user;
         return this;
     }
 
-    public UserFridgeBuilder withUser(UserBuilder userBuilder){
+    public UserFridgeBuilder withUser(UserBuilder userBuilder) {
         this.user = userBuilder.build();
         return this;
     }
 
-    public UserFridgeBuilder withProduct(Product product){
+    public UserFridgeBuilder withProduct(Product product) {
         this.product = product;
         return this;
     }
 
-    public UserFridgeBuilder withProduct(ProductBuilder productBuilder){
+    public UserFridgeBuilder withProduct(ProductBuilder productBuilder) {
         this.product = productBuilder.build();
         return this;
     }

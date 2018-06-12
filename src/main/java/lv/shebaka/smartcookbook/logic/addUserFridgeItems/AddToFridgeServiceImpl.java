@@ -15,30 +15,28 @@ import static lv.shebaka.smartcookbook.domain.builders.UserFridgeBuilder.createU
 public class AddToFridgeServiceImpl implements AddToFridgeService {
 
 
-        @Autowired
-        private AddToFridgeValidator addToFridgeValidator;
-        @Autowired
-        private FridgeRepository fridgeRepository;
+    @Autowired
+    private AddToFridgeValidator addToFridgeValidator;
+    @Autowired
+    private FridgeRepository fridgeRepository;
 
-        @Override
-        @Transactional
-        public AddToFridgeResponse addToFridge(AddToFridgeRequest request) {
-            List<Error> validationErrors = addToFridgeValidator.validate(request);
-            if(!validationErrors.isEmpty()){
-                return new AddToFridgeResponse(validationErrors);
-            }
-
-            UserFridge userFridge = createUserFridge()
-                    .withUser(request.getUser())
-                    .withProduct(request.getProduct())
-                    .build();
-
-            fridgeRepository.addToUserFridge(userFridge);
-
-
-
-
-            return new AddToFridgeResponse(userFridge.getId());
+    @Override
+    @Transactional
+    public AddToFridgeResponse addToFridge(AddToFridgeRequest request) {
+        List<Error> validationErrors = addToFridgeValidator.validate(request);
+        if (!validationErrors.isEmpty()) {
+            return new AddToFridgeResponse(validationErrors);
         }
+
+        UserFridge userFridge = createUserFridge()
+                .withUser(request.getUser())
+                .withProduct(request.getProduct())
+                .build();
+
+        fridgeRepository.addToUserFridge(userFridge);
+
+
+        return new AddToFridgeResponse(userFridge.getId());
+    }
 
 }

@@ -1,15 +1,18 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.logic.userregistration.*;
+import lv.shebaka.smartcookbook.logic.userRegistration.UserRegistrationRequest;
+import lv.shebaka.smartcookbook.logic.userRegistration.UserRegistrationResponse;
+import lv.shebaka.smartcookbook.logic.userRegistration.UserRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
+
 @Component
 public class AddUserView implements View {
 
-//    @Autowired private AddUserService addUserService;
-    @Autowired private UserRegistrationService userRegistrationService;
+    @Autowired
+    private UserRegistrationService userRegistrationService;
 
     @Override
     public void execute() {
@@ -20,33 +23,18 @@ public class AddUserView implements View {
         String username = scan.nextLine();
         System.out.print("Введите ваш пароль:");
         String password = scan.nextLine();
-//        System.out.print("Введите вашу пароль еще раз:");
-//        String passwordRepeat = scan.nextLine();
-//
-//        AddResponse response = addUserService.addUser(username, password , passwordRepeat);
-//
-//        if (response.isSuccess()){
-//            System.out.println("Пользователь успешно зарегестрирован!");
-//            System.out.println();
-//            System.out.println("Отлично!");
-//            System.out.println();
-//        }else{
-//            response.getErrors().forEach(error -> {
-//                System.out.println("Ошибка в поле = "+ error.getField());
-//                System.out.println("Ошибка = "+ error.getErrorMsg());
-//            });
-//        }
+
         UserRegistrationResponse response = userRegistrationService.register(new UserRegistrationRequest(username, password));
 
-        if(response.isSuccess()){
+        if (response.isSuccess()) {
             System.out.println("Пользователь успешно зарегестрирован!");
             System.out.println();
             System.out.println("ID пользователя" + response.getUserId());
             System.out.println();
         } else {
-                        response.getErrors().forEach(error -> {
-                System.out.println("Ошибка в поле = "+ error.getField());
-                System.out.println("Ошибка = "+ error.getErrorMsg());
+            response.getErrors().forEach(error -> {
+                System.out.println("Ошибка в поле = " + error.getField());
+                System.out.println("Ошибка = " + error.getErrorMsg());
             });
         }
     }

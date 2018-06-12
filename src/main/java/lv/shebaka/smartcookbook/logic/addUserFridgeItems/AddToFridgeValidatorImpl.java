@@ -3,8 +3,6 @@ package lv.shebaka.smartcookbook.logic.addUserFridgeItems;
 import lv.shebaka.smartcookbook.domain.Product;
 import lv.shebaka.smartcookbook.domain.User;
 import lv.shebaka.smartcookbook.logic.Error;
-import lv.shebaka.smartcookbook.logic.addrecipe.AddRecipeValidator;
-import lv.shebaka.smartcookbook.logic.userregistration.UserRegistrationRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

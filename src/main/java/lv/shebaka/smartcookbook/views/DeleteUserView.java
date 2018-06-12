@@ -1,6 +1,6 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.logic.deleteuser.DeleteUserService;
+import lv.shebaka.smartcookbook.logic.deleteUser.DeleteUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +21,7 @@ public class DeleteUserView implements View {
 
         boolean isRemoved = deleteUserService.deleteUser(username);
 
-        if(isRemoved){
+        if (isRemoved) {
             System.out.println("Рецепт " + username + " был удален из списка");
         } else {
             System.out.println("Рецепт " + username + " не найден в списке");

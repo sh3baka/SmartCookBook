@@ -9,11 +9,14 @@ public class UserBuilder {
     private String username;
     private String password;
 
-    private UserBuilder(){}
+    private UserBuilder() {
+    }
 
-    public static UserBuilder createUser(){return new UserBuilder();}
+    public static UserBuilder createUser() {
+        return new UserBuilder();
+    }
 
-    public User build(){
+    public User build() {
         User user = new User();
         user.setId(id);
         user.setUsername(username);
@@ -21,17 +24,17 @@ public class UserBuilder {
         return user;
     }
 
-    public UserBuilder withId(Long id){
+    public UserBuilder withId(Long id) {
         this.id = id;
         return this;
     }
 
-    public UserBuilder withUsername(String username){
+    public UserBuilder withUsername(String username) {
         this.username = username;
         return this;
     }
 
-    public UserBuilder withPassword(String password){
+    public UserBuilder withPassword(String password) {
         this.password = password;
         return this;
     }

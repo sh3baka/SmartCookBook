@@ -16,14 +16,14 @@
     <table>
         <tr>
             <td>Login:</td>
-            <td><input type="text" name="login" autocomplete="Login" ></td>
+            <td><input type="text" name="login" autocomplete="Login"></td>
         </tr>
         <tr>
-        <td>Password:</td>
-        <td><input type="text" name="password" autocomplete="Password" ></td>
+            <td>Password:</td>
+            <td><input type="text" name="password" autocomplete="Password"></td>
         </tr>
         <tr>
-            <td align="right" colspan="2"><input type="submit" value="Register User" ></td>
+            <td align="right" colspan="2"><input type="submit" value="Register User"></td>
         </tr>
     </table>
 </form>

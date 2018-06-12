@@ -1,13 +1,11 @@
 package lv.shebaka.smartcookbook.data.orm;
 
 import lv.shebaka.smartcookbook.data.RecipeRepository;
-import lv.shebaka.smartcookbook.domain.Product;
 import lv.shebaka.smartcookbook.domain.Recipe;
 import lv.shebaka.smartcookbook.domain.RecipeItem;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import java.util.List;
 import java.util.Optional;

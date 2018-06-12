@@ -1,15 +1,17 @@
 package lv.shebaka.smartcookbook.views;
 
 import lv.shebaka.smartcookbook.logic.AddResponse;
-import lv.shebaka.smartcookbook.logic.addrecipe.AddRecipeService;
+import lv.shebaka.smartcookbook.logic.addRecipe.AddRecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
+
 @Component
 public class AddRecipeView implements View {
 
-     @Autowired private AddRecipeService addRecipeService;
+    @Autowired
+    private AddRecipeService addRecipeService;
 
 
     @Override
@@ -22,16 +24,16 @@ public class AddRecipeView implements View {
         System.out.print("Введите ваш рецепт:");
         String desc = scan.nextLine();
 
-        AddResponse response = addRecipeService.addRecipe(title,desc);
-        if(response.isSuccess()){
+        AddResponse response = addRecipeService.addRecipe(title, desc);
+        if (response.isSuccess()) {
             System.out.println("Рецепт добавлен в список!");
             System.out.println();
             System.out.println("Отлично!");
             System.out.println();
-        }else {
+        } else {
             response.getErrors().forEach(error -> {
-                System.out.println("Ошибка в поле = "+ error.getField());
-                System.out.println("Ошибка = "+ error.getErrorMsg());
+                System.out.println("Ошибка в поле = " + error.getField());
+                System.out.println("Ошибка = " + error.getErrorMsg());
             });
         }
     }

@@ -10,11 +10,14 @@ public class RecipeItemBuilder {
     private Recipe recipes;
     private Product product;
 
-    RecipeItemBuilder(){}
+    RecipeItemBuilder() {
+    }
 
-    public static RecipeItemBuilder createRecipeItem(){return new RecipeItemBuilder();}
+    public static RecipeItemBuilder createRecipeItem() {
+        return new RecipeItemBuilder();
+    }
 
-    public RecipeItem build(){
+    public RecipeItem build() {
         RecipeItem item = new RecipeItem();
         item.setId(id);
         item.setRecipes(recipes);
@@ -22,27 +25,27 @@ public class RecipeItemBuilder {
         return item;
     }
 
-    public RecipeItemBuilder withId(Long id){
+    public RecipeItemBuilder withId(Long id) {
         this.id = id;
         return this;
     }
 
-    public RecipeItemBuilder with(Recipe recipe){
+    public RecipeItemBuilder with(Recipe recipe) {
         this.recipes = recipe;
         return this;
     }
 
-    public RecipeItemBuilder with(RecipeBuilder recipeBuilder){
+    public RecipeItemBuilder with(RecipeBuilder recipeBuilder) {
         this.recipes = recipeBuilder.build();
         return this;
     }
 
-    public RecipeItemBuilder with(Product product){
+    public RecipeItemBuilder with(Product product) {
         this.product = product;
         return this;
     }
 
-    public RecipeItemBuilder with(ProductBuilder productBuilder){
+    public RecipeItemBuilder with(ProductBuilder productBuilder) {
         this.product = productBuilder.build();
         return this;
     }

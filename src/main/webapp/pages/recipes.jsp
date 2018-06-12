@@ -13,19 +13,22 @@
     <title>Recipes</title>
     <style>
         table, tr, td {
-            color: brown ;
+            color: brown;
             background-color: orange;
         }
+
         a:link {
             color: black;
             text-decoration: none;
             background-color: orange;
         }
+
         a:hover {
             color: white;
             text-decoration: none;
             background-color: orangered;
         }
+
         h2 {
             color: darkblue;
         }

@@ -33,7 +33,7 @@ public class FridgeController {
     private UserRepository userRepository;
 
     @RequestMapping(value = "/fridge", method = RequestMethod.GET)
-    public ModelAndView getFridge(HttpServletRequest request){
+    public ModelAndView getFridge(HttpServletRequest request) {
 
         try {
             request.setCharacterEncoding("UTF-8");
@@ -43,24 +43,24 @@ public class FridgeController {
 
         List<Product> productList = productRepository.getAllProducts();
 
-        return new  ModelAndView("fridge", "fridgeModel" , productList);
+        return new ModelAndView("fridge", "fridgeModel", productList);
     }
 
     @RequestMapping(value = "/getfridge", method = RequestMethod.POST)
-    public ModelAndView showFridgeItem(@SessionAttribute("userModel") User user, HttpServletRequest request){
+    public ModelAndView showFridgeItem(@SessionAttribute("userModel") User user, HttpServletRequest request) {
 
         try {
             request.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        
+
 
 //get Combo box values as String
         String[] numbers = request.getParameterValues("products");
 //make String values as Product list
         List<Product> products = new ArrayList<>();
-        for(String value : numbers){
+        for (String value : numbers) {
             Product product = productRepository.getProductsByName(value).get();
             products.add(product);
         }

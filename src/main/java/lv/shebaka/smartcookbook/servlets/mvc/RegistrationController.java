@@ -1,10 +1,9 @@
 package lv.shebaka.smartcookbook.servlets.mvc;
 
-import lv.shebaka.smartcookbook.logic.userregistration.UserRegistrationRequest;
-import lv.shebaka.smartcookbook.logic.userregistration.UserRegistrationResponse;
-import lv.shebaka.smartcookbook.logic.userregistration.UserRegistrationService;
+import lv.shebaka.smartcookbook.logic.userRegistration.UserRegistrationRequest;
+import lv.shebaka.smartcookbook.logic.userRegistration.UserRegistrationResponse;
+import lv.shebaka.smartcookbook.logic.userRegistration.UserRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +18,7 @@ public class RegistrationController {
     @Autowired
     private UserRegistrationService userRegistrationService;
 
-    @RequestMapping(value = "/registration" , method = RequestMethod.GET)
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView processGet(HttpServletRequest request) {
         return new ModelAndView("registration");
     }

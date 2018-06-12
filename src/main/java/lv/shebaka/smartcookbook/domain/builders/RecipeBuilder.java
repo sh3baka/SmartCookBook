@@ -8,11 +8,14 @@ public class RecipeBuilder {
     private String title;
     private String desc;
 
-    RecipeBuilder(){}
+    RecipeBuilder() {
+    }
 
-    public static RecipeBuilder createRecipe(){return new RecipeBuilder();}
+    public static RecipeBuilder createRecipe() {
+        return new RecipeBuilder();
+    }
 
-    public Recipe build(){
+    public Recipe build() {
         Recipe recipe = new Recipe();
         recipe.setId(id);
         recipe.setTitle(title);
@@ -20,17 +23,17 @@ public class RecipeBuilder {
         return recipe;
     }
 
-    public RecipeBuilder withId(Long id){
+    public RecipeBuilder withId(Long id) {
         this.id = id;
         return this;
     }
 
-    public RecipeBuilder wihtTitle(String title){
+    public RecipeBuilder wihtTitle(String title) {
         this.title = title;
         return this;
     }
 
-    public RecipeBuilder withDescription(String desc){
+    public RecipeBuilder withDescription(String desc) {
         this.desc = desc;
         return this;
     }

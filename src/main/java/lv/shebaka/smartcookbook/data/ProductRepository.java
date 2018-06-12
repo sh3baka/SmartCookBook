@@ -1,7 +1,6 @@
 package lv.shebaka.smartcookbook.data;
 
 import lv.shebaka.smartcookbook.domain.Product;
-import lv.shebaka.smartcookbook.domain.User;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;

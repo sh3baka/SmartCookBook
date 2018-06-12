@@ -16,6 +16,6 @@ public interface UserRepository {
 
     List<UserFridge> getUserProductsByUsername(User user);
 
- //   List<User> getAllUsers();
+    //   List<User> getAllUsers();
 
 }

@@ -1,6 +1,5 @@
 package lv.shebaka.smartcookbook.data;
 
-import lv.shebaka.smartcookbook.domain.Product;
 import lv.shebaka.smartcookbook.domain.Recipe;
 import lv.shebaka.smartcookbook.domain.RecipeItem;
 

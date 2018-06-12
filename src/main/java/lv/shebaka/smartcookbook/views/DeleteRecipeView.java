@@ -1,14 +1,16 @@
 package lv.shebaka.smartcookbook.views;
 
-import lv.shebaka.smartcookbook.logic.removerecipe.DeleteRecipeService;
+import lv.shebaka.smartcookbook.logic.removeRecipe.DeleteRecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
+
 @Component
 public class DeleteRecipeView implements View {
 
-    @Autowired private DeleteRecipeService deleteRecipeService;
+    @Autowired
+    private DeleteRecipeService deleteRecipeService;
 
     @Override
     public void execute() {
@@ -20,7 +22,7 @@ public class DeleteRecipeView implements View {
 
         boolean isRemoved = deleteRecipeService.deleteRecipe(title);
 
-        if(isRemoved){
+        if (isRemoved) {
             System.out.println("Рецепт " + title + " был удален из списка");
         } else {
             System.out.println("Рецепт " + title + " не найден в списке");

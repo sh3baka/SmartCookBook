@@ -15,6 +15,7 @@
             text-decoration: none;
             background-color: white;
         }
+
         a:hover {
             color: black;
             text-decoration: none;
@@ -32,7 +33,7 @@
         </tr>
         <tr>
             <td>Password:</td>
-            <td><input type="text" name="password"> </td>
+            <td><input type="text" name="password"></td>
         </tr>
         <tr>
             <td align="right" colspan="2"><input type="submit" value="Login"></td>

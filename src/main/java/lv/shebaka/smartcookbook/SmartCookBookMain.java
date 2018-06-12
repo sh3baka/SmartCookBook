@@ -30,6 +30,7 @@ public class SmartCookBookMain {
             view.execute();
         }
     }
+
     public static void printMenu() {
 
         System.out.println("Программное Меню:");

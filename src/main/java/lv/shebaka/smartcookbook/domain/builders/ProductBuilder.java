@@ -6,25 +6,26 @@ public class ProductBuilder {
     private Long id;
     private String title;
 
-    private ProductBuilder(){}
+    private ProductBuilder() {
+    }
 
-    public static ProductBuilder createProduckt(){
+    public static ProductBuilder createProduckt() {
         return new ProductBuilder();
     }
 
-    public Product build(){
+    public Product build() {
         Product product = new Product();
         product.setId(id);
         product.setTitle(title);
         return product;
     }
 
-    public ProductBuilder withId(Long id){
+    public ProductBuilder withId(Long id) {
         this.id = id;
         return this;
     }
 
-    public  ProductBuilder withTitle(String title){
+    public ProductBuilder withTitle(String title) {
         this.title = title;
         return this;
     }
