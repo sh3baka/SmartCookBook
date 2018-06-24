@@ -35,11 +35,7 @@ public class FridgeController {
     @RequestMapping(value = "/fridge", method = RequestMethod.GET)
     public ModelAndView getFridge(HttpServletRequest request) {
 
-        try {
-            request.setCharacterEncoding("UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        setRequestEncoding(request, "UTF-8");
 
         List<Product> productList = productRepository.getAllProducts();
 
@@ -49,31 +45,42 @@ public class FridgeController {
     @RequestMapping(value = "/getfridge", method = RequestMethod.POST)
     public ModelAndView showFridgeItem(@SessionAttribute("userModel") User user, HttpServletRequest request) {
 
-        try {
-            request.setCharacterEncoding("UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        setRequestEncoding(request, "UTF-8");
 
 
-//get Combo box values as String
-        String[] numbers = request.getParameterValues("products");
-//make String values as Product list
-        List<Product> products = new ArrayList<>();
-        for (String value : numbers) {
-            Product product = productRepository.getProductsByName(value).get();
-            products.add(product);
-        }
+        List<Product> products = getListOfSelectedProducts(request);
 
+        updateUserFridge(user, products);
+
+        return new ModelAndView("login", "testModel", products);
+
+
+    }
+
+    private void updateUserFridge(@SessionAttribute("userModel") User user, List<Product> products) {
         fridgeRepository.clearUserFridge(user);
 
         for (Product product : products) {
             addToFridgeService.addToFridge(new AddToFridgeRequest(user, product));
         }
+    }
 
-        return new ModelAndView("login", "testModel", products);
+    private List<Product> getListOfSelectedProducts(HttpServletRequest request) {
+        String[] numbers = request.getParameterValues("products");
+        List<Product> products = new ArrayList<>();
+        for (String value : numbers) {
+            Product product = productRepository.getProductsByName(value).get();
+            products.add(product);
+        }
+        return products;
+    }
 
-
+    private void setRequestEncoding(HttpServletRequest request, String encoding) {
+        try {
+            request.setCharacterEncoding(encoding);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
 }
